@@ -12,7 +12,7 @@ var score;
 
 var gameOverImg,restartImg
 //var de sons
-var jumpSound , checkPointSound, dieSound
+var somSalto , somCheckPoint, somMorte
 
 
 function preload(){
@@ -33,10 +33,9 @@ function preload(){
    restartImg = loadImage("restart.png")
   gameOverImg = loadImage("gameOver.png")
   //carregar sons e atribuir a uma var(feito)
-  jumpSound = loadSound("jump.mp3")
-  dieSound = loadSound("die.mp3")
-  checkPointSound = loadSound("checkPoint.mp3")
-}
+  somSalto = loadSound("jump.mp3")
+  somMorte = loadSound("die.mp3")
+  somCheckPoint = loadSound("checkPoint.mp3")
 
 function setup() {
   createCanvas(600, 200);
