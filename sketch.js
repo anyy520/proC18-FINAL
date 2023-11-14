@@ -12,7 +12,9 @@ var score;
 
 var gameOverImg,restartImg
 //var de sons
-var somSalto , somCheckPoint, somMorte
+var somDePulo, somDeColisao;
+
+
 
 
 function preload(){
@@ -33,9 +35,11 @@ function preload(){
    restartImg = loadImage("restart.png")
   gameOverImg = loadImage("gameOver.png")
   //carregar sons e atribuir a uma var(feito)
-  somSalto = loadSound("jump.mp3")
-  somMorte = loadSound("die.mp3")
-  somCheckPoint = loadSound("checkPoint.mp3")
+  somDePulo = loadSound("jump.mp3")
+
+   somDeColisao = loadSound("checkPoint.mp3")
+   
+
 
 function setup() {
   createCanvas(600, 200);
@@ -100,8 +104,9 @@ function draw() {
     
    // 1: Adicione o som do salto para tocar toda vez que o T-Rex pular.
     if(keyDown("space")&& trex.y >= 100) {
+        somDePulo.play( );
         trex.velocityY = -12;
-        jumpSound.play();
+       
     }
     
     //adicionar gravidade
@@ -115,7 +120,7 @@ function draw() {
    //2: Adicione o som de morrer para quando o T-Rex atingir um obstáculo 
     if(obstaclesGroup.isTouching(trex)){
         gameState = END;
-        dieSound.play();
+        somDeColisao.play()
     }
   }
    else if (gameState === END) {
